@@ -13,7 +13,7 @@ const ScrollToTopButton = () => {
       const windowHeight = window.innerHeight;
       const documentheight = document.documentElement.scrollHeight;
       const scrollTop = window.scrollY;
-      //adjust the button position : bottom - 20, bottom - 130 near footer
+      //adjust the button position : bottom - 20, bottom - 130 near footerr
       const nearFooter = scrollTop + windowHeight > documentheight - 300;
       //set button position
       if (scrolled) {
