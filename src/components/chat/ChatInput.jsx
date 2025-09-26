@@ -1,4 +1,4 @@
-// src/components/chat/ChatInput.jsx
+// src/components/chat/ChatInput.jsxx
 import { useState } from "react";
 
 export default function ChatInput({ onSend, disabled }) {
