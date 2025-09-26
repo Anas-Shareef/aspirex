@@ -5,7 +5,7 @@
     "grades": ["9", "10"],
     "board": ["CBSE", "ICSE", "State Board"],
     "category": "All",
-    "income_limit": 350000,
+    "income_limit": 3500000,
     "deadline": "2025-10-31",
     "url": "https://scholarships.gov.in"
   },
