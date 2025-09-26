@@ -159,14 +159,14 @@ function CareerCrack({ user }) {
     });
     setSelectedChatId(newDoc.id);
   };
+const handleSend = async (text) => {
+  if (!text.trim() || !userId) return;
+  setIsAiTyping(true);
 
-  const handleSend = async (text) => {
-    if (!text.trim() || !userId) return;
-    setIsAiTyping(true);
-    const userMsg = { role: "user", text: text };
-    const typing = { role: "ai", text: "__typing__" };
-    const currentChat = [...messages, userMsg, typing];
-    setMessages(currentChat);
+  const userMsg = { role: "user", text: text };
+  const typing = { role: "ai", text: "__typing__" };
+  const currentChat = [...messages, userMsg, typing];
+  setMessages(currentChat);
 
     const systemPrompt = `
       You are CareerCrack, an intelligent, empathetic, and professional career guidance assistant designed to help students explore career options, make informed decisions, and plan their academic and professional journeys.
@@ -262,49 +262,50 @@ function CareerCrack({ user }) {
         - But if you’re asking because you’re worried about balancing personal life with studies and career, I can definitely help you with time management and stress balance strategies. Want me to suggest some techniques?
     `
 
-    try {
-      let aiReply = "";
+ try {
+    let aiReply = "";
 
-      if (useGroq) {
-        const res = await axios.post(
-          "https://edgex-backend.onrender.com/groq",
-          {
-            model: "llama3-8b-8192",
-            messages: [
-              {
-                role: "system",
-                content: systemPrompt,
-              },
-              { role: "user", content: text },
-            ],
-            temperature: 0.7,
-          }
-        );
-        aiReply = res.data.choices[0].message.content;
-      } else {
-        const res = await axios.post("http://127.0.0.1:5000/ask", {
-          prompt: text,
-        });
-        aiReply = res.data.response;
-      }
-
-      await saveMemory(text);
-      const updatedChat = [
-        ...currentChat.slice(0, -1),
-        { role: "ai", text: aiReply },
-      ];
-      setMessages(updatedChat);
-      await saveChatToFirestore(updatedChat);
-    } catch (err) {
-      console.error("AI error:", err);
-      setMessages((prev) => [
-        ...prev.slice(0, -1),
-        { role: "ai", text: "⚠️ Something went wrong. Try again!" },
-      ]);
-    } finally {
-      setIsAiTyping(false);
+    if (useGroq) {
+      // ✅ frontend → backend → Groq API (safe)
+      const res = await axios.post(
+        "https://aspirex-backend.onrender.com/groq",
+        {
+          model: "llama3-8b-8192",
+          messages: [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: text },
+          ],
+          temperature: 0.7,
+        }
+      );
+      aiReply = res.data.choices[0].message.content;
+    } else {
+      // Local fallback
+      const res = await axios.post("http://127.0.0.1:5000/ask", {
+        prompt: text,
+      });
+      aiReply = res.data.response;
     }
-  };
+
+    await saveMemory(text);
+
+    const updatedChat = [
+      ...currentChat.slice(0, -1),
+      { role: "ai", text: aiReply },
+    ];
+    setMessages(updatedChat);
+
+    await saveChatToFirestore(updatedChat);
+  } catch (err) {
+    console.error("AI error:", err);
+    setMessages((prev) => [
+      ...prev.slice(0, -1),
+      { role: "ai", text: "⚠️ Something went wrong. Try again!" },
+    ]);
+  } finally {
+    setIsAiTyping(false);
+  }
+};
 
   const listenToHistory = (uid) => {
     const q = query(

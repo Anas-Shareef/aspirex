@@ -71612,7 +71612,7 @@ function CareerCrack({ user: n }) {
         let Cn = "";
         Oe
           ? (Cn = (
-              await axios.post("https://edgex-backend.onrender.com/groq", {
+              await axios.post("https://aspirex-backend.onrender.com/groq", {
                 model: "llama3-8b-8192",
                 messages: [
                   { role: "system", content: Ln },
@@ -72069,7 +72069,7 @@ function MoodMirror() {
       e(Ze);
       try {
         const yn = (
-            await axios.post("https://edgex-backend.onrender.com/groq", {
+            await axios.post("https://aspirex-backend.onrender.com/groq", {
               model: "llama3-8b-8192",
               messages: [
                 {
@@ -120158,7 +120158,7 @@ function Home({ user: n }) {
       {
         name: "Ananya S.",
         quote:
-          "EDGEx helped me discover a career path I never even considered. Life-changing!",
+          "aspirex helped me discover a career path I never even considered. Life-changing!",
         role: "Class 12, Delhi",
       },
       {
@@ -120309,7 +120309,7 @@ function Home({ user: n }) {
                       "Think better with ",
                       jsxRuntimeExports.jsx("span", {
                         className: "text-purple-400",
-                        children: "EDGEx",
+                        children: "aspirex",
                       }),
                     ],
                   }),
@@ -120348,7 +120348,7 @@ function Home({ user: n }) {
             children: [
               jsxRuntimeExports.jsx("h2", {
                 className: "text-3xl font-bold text-center mb-12 text-white",
-                children: "What can EDGEx AI do?",
+                children: "What can aspirex AI do?",
               }),
               jsxRuntimeExports.jsx("div", {
                 className:
@@ -120561,7 +120561,7 @@ function Home({ user: n }) {
                     transition: { duration: 0.8, delay: 0.2 },
                     className: "text-gray-400 text-lg mb-8",
                     children:
-                      "Start exploring EDGEx’s tools and get ahead in your academic & personal path.",
+                      "Start exploring aspirex’s tools and get ahead in your academic & personal path.",
                   }),
                   jsxRuntimeExports.jsx(motion.div, {
                     initial: { opacity: 0, scale: 0.95 },
@@ -120586,18 +120586,18 @@ function Home({ user: n }) {
               children: [
                 "© ",
                 new Date().getFullYear(),
-                " EDGEx by Ayushman. All rights reserved.",
+                . All rights reserved.",
                 jsxRuntimeExports.jsxs("div", {
                   className: "flex  space-x-4 text-purple-400 text-3xl ",
                   children: [
                     jsxRuntimeExports.jsx("a", {
-                      href: "https://github.com/ayush585/edgex",
+                      href: "https://github.com/anas585/aspirex",
                       target: "_blank",
                       className: "hover:text-purple-200 transition",
                       children: jsxRuntimeExports.jsx(FaGithub, {}),
                     }),
                     jsxRuntimeExports.jsx("a", {
-                      href: "https://www.linkedin.com/in/ayushman-mukherjee-437a49314/",
+                      href: "https://www.linkedin.com/in/anasman-mukherjee-437a49314/",
                       target: "_blank",
                       className: "hover:text-purple-200 transition",
                       children: jsxRuntimeExports.jsx(FaLinkedin, {}),
