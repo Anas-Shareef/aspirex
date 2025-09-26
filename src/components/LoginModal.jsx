@@ -1,6 +1,6 @@
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider, db } from "../firebase";
-// import { doc, getDoc, setDoc } from "firebase/firestore";
+// import { doc, getDoc, setDoc } from "firebase/firestore";;
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
