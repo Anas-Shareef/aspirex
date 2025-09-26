@@ -390,7 +390,7 @@ function CareerCrack({ user }) {
 
       doc.setFontSize(12);
       doc.setFont("helvetica", "normal");
-      doc.text("powered by Edgex", 40, 55);
+      doc.text("powered by AspireX", 40, 55);
 
       // ----- USER INFO SECTION -----
       let y = 90;
@@ -463,7 +463,7 @@ function CareerCrack({ user }) {
       // ----- MOTIVATIONAL FOOTER -----
       doc.setFontSize(10);
       doc.setTextColor("#888888");
-      doc.text("Dream big! - Team Edgex", 40, 780);
+      doc.text("Dream big! - TeamAspireX",0); 
 
       // ----- SAVE PDF -----
       doc.save("Career_Report.pdf");

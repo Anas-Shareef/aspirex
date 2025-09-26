@@ -82,21 +82,21 @@ function Home({ user }) {
 
   const testimonials = [
     {
-      name: "Ananya S.",
+      name: "Muhammed Navas VPP",
       quote:
-        "EDGEx helped me discover a career path I never even considered. Life-changing!",
-      role: "Class 12, Delhi",
+        "Aspirex helped me discover a career path I never even considered. Life-changing!",
+      role: "Research Scholar, IIT Madras",
     },
     {
-      name: "Rohan M.",
+      name: "Ahmed Ameen",
       quote: "MoodMirror is like talking to a friend who truly understands you. So cool!",
-      role: "Class 10, Mumbai",
+      role: " PG Student, Kerala University",
     },
     {
-      name: "Sneha T.",
+      name: "Nasrudheen Kadachira",
       quote:
         "The scholarship tool got me 3 perfect matches. This is the future of guidance!",
-      role: "Commerce Student, Kolkata",
+      role: "Commerce Student, Calicut University",
     },
   ];
 
@@ -243,7 +243,7 @@ function Home({ user }) {
           className="z-10 max-w-4xl"
         >
           <h1 className="text-4xl md:text-6xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
-            Think better with <span className="text-purple-400">EDGEx</span>
+            Think better with <span className="text-purple-400">AspireX</span>
           </h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
             Your all-in-one AI toolkit: career mentor, mood companion, scholarship tracker & more.
@@ -263,7 +263,7 @@ function Home({ user }) {
       </section>
 
       <section id="features" className="py-20 px-6 lg:px-20 bg-gray-100 dark:bg-[#0e0e1a]">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">What can EDGEx AI do?</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">What can AspireX AI do?</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto text-gray-900 dark:text-white">
           {features.map((feat, i) => {
             const Card = (
@@ -296,7 +296,7 @@ function Home({ user }) {
 
       <section ref={countersRef} className="py-20 bg-white text-center dark:bg-[#0a0a14]">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">
-            Our Impact So Far 🚀
+            Our Impact  Will Spread So Far 🚀
         </h2>
         {!isAnimating && (
           <div className="mb-6">
@@ -395,7 +395,7 @@ function Home({ user }) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-gray-700 dark:text-gray-400 text-lg mb-8"
           >
-            Start exploring EDGEx’s tools and get ahead in your academic & personal path.
+            Start exploring AspireX’s tools and get ahead in your academic & personal path.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -412,21 +412,11 @@ function Home({ user }) {
         </div>
       </section>
 
-  <footer className="py-8  text-gray-500 dark:text-gray-400 text-sm px-8 lg:px-20 ">
+  <footer className="py-8  align-middle text-gray-500 dark:text-gray-400 text-sm px-8 lg:px-20 ">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center ">
-            © {new Date().getFullYear()} EDGEx by Ayushman. All rights reserved.
+            © {new Date().getFullYear()} AspireX by Muhammed Anas. All rights reserved.
           
-            <div className="flex  space-x-4 text-purple-400 text-3xl ">
-             <a href="https://github.com/ayush585/edgex" target="_blank" 
-                className="hover:text-purple-200 transition"> 
-                <FaGithub/>
-              </a>
-
-              <a href="https://www.linkedin.com/in/ayushman-mukherjee-437a49314/" target="_blank" 
-                     className="hover:text-purple-200 transition"> 
-                <FaLinkedin/>
-              </a>
-            </div>
+        
           </div>
       </footer>
     </div>

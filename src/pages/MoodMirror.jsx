@@ -120,7 +120,6 @@ function MoodMirror() {
   }, []);
 
   // Theme is controlled globally via the Navbar/App. Do not manage local dark mode here.
-
   const handleSend = async (text) => {
     if (!text.trim()) return;
 
@@ -129,34 +128,58 @@ function MoodMirror() {
     const updated = [...messages, userMsg, typing];
     setMessages(updated);
 
-    try {
-      const res = await axios.post(
-        "https://edgex-backend.onrender.com/groq",
-        {
-          model: "llama3-8b-8192",
-          messages: [
-            {
-              role: "system",
-              content:
-                "You are MoodMirror by Mindmorph, a friendly Gen Z AI big sibling who reads chats and gives brutally honest but warm analysis of relationships: flirt, rizz, friendzone, manipulation, or overthinking. End with real advice.",
-            },
-            { role: "user", content: text },
-          ],
-          temperature: 0.75,
-        }
-      );
+    const handleSend = async (text) => {
+      if (!text.trim()) return;
 
-      const reply = res.data.choices[0].message.content;
-      const finalChat = [...updated.slice(0, -1), { role: "ai", text: reply }];
-      setMessages(finalChat);
-      await saveChat(finalChat);
-    } catch (err) {
-      console.error("Groq error:", err);
-      toast.error("Failed to get response. Please try again.");
-      setMessages((prev) => [
-        ...prev.slice(0, -1),
-        { role: "ai", text: "⚠️ Something went wrong. Try again!" },
-      ]);
+      const userMsg = { role: "user", text };
+      const typing = { role: "ai", text: "__typing__" };
+      const updated = [...messages, userMsg, typing];
+      setMessages(updated);
+
+      try {
+        const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+        const model = "gemini-1.5-flash"; // or gemini-1.5-pro
+
+        const res = await axios.post(
+          `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${apiKey}`,
+          {
+            contents: [
+              {
+                role: "user",
+                parts: [{ text }],
+              },
+              {
+                role: "system",
+                parts: [
+                  {
+                    text: "You are MoodMirror by Mindmorph, a friendly Gen Z AI big sibling who reads chats and gives brutally honest but warm analysis of relationships: flirt, rizz, friendzone, manipulation, or overthinking. End with real advice.",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        const reply =
+          res.data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+          "⚠️ No response from AI.";
+
+        const finalChat = [...updated.slice(0, -1), { role: "ai", text: reply }];
+        setMessages(finalChat);
+        await saveChat(finalChat);
+      } catch (err) {
+        console.error("Gemini API error:", err.response?.data || err.message);
+        toast.error("Failed to get response. Please try again.");
+        setMessages((prev) => [
+          ...prev.slice(0, -1),
+          { role: "ai", text: "⚠️ Something went wrong. Try again!" },
+        ]);
+      }
     }
   };
 

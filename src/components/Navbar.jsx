@@ -42,7 +42,7 @@ const Navbar = ({ isAuthenticated, onLogout, user, theme, toggleTheme }) => {
     },
     { 
       id: 'scholarships', 
-      label: 'ScholarshipScout', 
+      label: 'Scholarships', 
       icon: Award, 
       path: '/scholarships',
       description: 'Find scholarships'
@@ -194,7 +194,7 @@ const Navbar = ({ isAuthenticated, onLogout, user, theme, toggleTheme }) => {
               </div>
               <div>
                 <h1 className="text-xl font-bold text-white">
-                  EDGE<span className="text-purple-300">x</span>
+                  Aspire<span className="text-purple-300">x</span>
                 </h1>
                 <p className="text-xs text-purple-200 hidden sm:block">AI Toolkit</p>
               </div>

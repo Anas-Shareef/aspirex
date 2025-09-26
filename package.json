@@ -1,5 +1,5 @@
 {
-  "name": "edgex-careercrack",
+  "name": "aspirex-careercrack",
   "version": "0.0.1",
   "scripts": {
     "dev": "vite",
@@ -7,9 +7,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@huggingface/transformers": "^3.6.1",
     "@xenova/transformers": "^2.17.2",
-    "axios": "^1.10.0",
+    "axios": "^1.12.2",
     "firebase": "^11.10.0",
     "framer-motion": "^12.23.11",
     "jspdf": "^3.0.1",
@@ -34,15 +35,15 @@
     "tailwindcss": "^3.3.0",
     "vite": "^7.0.5"
   },
-  "description": "EDGEx – AI mentorship suite for Gen Z: career guidance, mood companion, scholarships, notes, and more.",
+  "description": "AspireX – AI mentorship suite for Gen Z: career guidance, mood companion, scholarships, notes, and more.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ayush585/edgex.git"
+    "url": ""
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ayush585/edgex/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/ayush585/edgex#readme"
+  "homepage": ""
 }
