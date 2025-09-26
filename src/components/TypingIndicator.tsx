@@ -1,4 +1,4 @@
-// src/components/TypingIndicator.jsx
+// src/components/TypingIndicator.jsxx
 
 import React from 'react';
 import { motion } from 'framer-motion';
