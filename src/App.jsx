@@ -23,7 +23,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState(() => {
     try {
-      // If index.html already applied dark class on html, reflect that
+      // If index.html already applied dark class on html, reflect thatt
       if (typeof document !== 'undefined') {
         return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
       }
