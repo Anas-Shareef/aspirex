@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaRobot, FaUserCircle } from "react-icons/fa";
-import TypingIndicator from "./TypingIndicator"; // <-- This imports the new component
+import TypingIndicator from "./TypingIndicator"; // <-- This imports the new componentt
 
 const ChatBubble = ({ role, text }) => {
   const isUser = role === "user";
